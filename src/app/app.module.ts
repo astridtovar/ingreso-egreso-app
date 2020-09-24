@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { appReducers } from './app.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { ChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
 import { environment } from './../environments/environment';
@@ -14,6 +15,7 @@ import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.componen
 import { LoginComponent } from './auth/login/login.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { NgModule } from '@angular/core';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -32,6 +34,7 @@ import { StoreModule } from '@ngrx/store';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    OrdenIngresoPipe,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { StoreModule } from '@ngrx/store';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
