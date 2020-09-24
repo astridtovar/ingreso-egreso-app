@@ -27,7 +27,6 @@ export class AuthService {
 
   initAuthListener() {
     this.auth.authState.subscribe((fusuario) => {
-      console.log(fusuario);
       if (fusuario) {
         this.usuarioSubscription = this.firestore
           .doc(`${fusuario.uid}/usuario`)
@@ -39,7 +38,7 @@ export class AuthService {
           });
       } else {
         this._user = null;
-        this.usuarioSubscription.unsubscribe();
+        this.usuarioSubscription?.unsubscribe();
         this.store.dispatch(authActions.unsetUsuario());
         this.store.dispatch(ingresoEgresoActions.unSetItems() );
       }
